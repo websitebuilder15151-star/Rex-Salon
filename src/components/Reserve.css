@@ -1,0 +1,44 @@
+.reserve {
+  background: var(--gold);
+  padding: clamp(3.5rem, 7vw, 5rem) 0;
+  text-align: center;
+}
+
+.reserve-inner {
+  max-width: 36rem;
+}
+
+.reserve-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  color: #121212;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+}
+
+.reserve-lead {
+  color: rgba(18, 18, 18, 0.78);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+}
+
+.reserve-note {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: rgba(18, 18, 18, 0.55);
+}
+
+@media (max-width: 560px) {
+  .reserve {
+    padding: 2.75rem 0;
+  }
+
+  .reserve .btn {
+    width: 100%;
+  }
+
+  .reserve-lead {
+    font-size: 0.98rem;
+  }
+}

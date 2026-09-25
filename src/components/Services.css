@@ -1,0 +1,131 @@
+.services {
+  background: var(--bg-elevated);
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.services-intro {
+  margin: 0 auto;
+  max-width: 40rem;
+  font-size: 1.1rem;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.service-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.75rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(197, 160, 89, 0.35);
+}
+
+.service-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+}
+
+.service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.service-card-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.45rem;
+  color: var(--cream);
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+}
+
+.service-card-desc {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  flex: 1;
+  margin-bottom: 1.5rem;
+}
+
+.service-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.service-card-price {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--gold);
+  font-weight: 500;
+}
+
+.service-card-book {
+  padding: 0.45rem 0.95rem;
+  font-size: 0.8rem;
+  border-radius: 6px;
+}
+
+@media (max-width: 1000px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+  }
+
+  .service-card {
+    padding: 1.35rem 1.2rem;
+  }
+
+  .service-card-title {
+    font-size: 1.3rem;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+
+  .service-card-footer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.85rem;
+  }
+
+  .service-card-book {
+    width: 100%;
+    min-height: 44px;
+    padding: 0.65rem 1rem;
+  }
+}
+
+@media (hover: none) {
+  .service-card:hover {
+    transform: none;
+  }
+}
