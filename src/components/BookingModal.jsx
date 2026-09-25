@@ -160,7 +160,7 @@ export function BookingModal({ open, onClose, initialService = '' }) {
             <select value={form.service} onChange={update('service')} required>
               {services.map((s) => (
                 <option key={s.id} value={s.title}>
-                  {s.title} — ₹{s.price}
+                  {s.price != null ? `${s.title} — ₹${s.price}` : s.title}
                 </option>
               ))}
             </select>
@@ -182,14 +182,26 @@ export function BookingModal({ open, onClose, initialService = '' }) {
 
             <label className="field">
               <span>Preferred time</span>
-              <select value={form.time} onChange={update('time')} required>
-                <option value="">Select time</option>
+              <select
+                value={form.time}
+                onChange={update('time')}
+                required
+                disabled={availableSlots.length === 0}
+              >
+                <option value="">
+                  {form.date && availableSlots.length === 0
+                    ? 'Closed on this day'
+                    : 'Select time'}
+                </option>
                 {availableSlots.map((slot) => (
                   <option key={slot} value={slot}>
                     {slot}
                   </option>
                 ))}
               </select>
+              {form.date && availableSlots.length === 0 && (
+                <em className="field-error">Shop is closed on Tuesdays. Pick another day.</em>
+              )}
               {errors.time && <em className="field-error">{errors.time}</em>}
             </label>
           </div>

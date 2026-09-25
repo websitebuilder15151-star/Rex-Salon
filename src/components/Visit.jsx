@@ -29,7 +29,7 @@ export function Visit({ onBook }) {
               <br />
               {address.city}
             </p>
-            <p className="visit-note">{address.note}</p>
+            {address.note ? <p className="visit-note">{address.note}</p> : null}
             <a
               href={mapsUrl}
               className="visit-link"

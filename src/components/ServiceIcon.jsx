@@ -68,6 +68,27 @@ const icons = {
       <line x1="4" y1="17" x2="20" y2="17" strokeLinecap="round" />
     </svg>
   ),
+  nails: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <path
+        d="M8 21 V10 C8 7 10 5 12 5 C14 5 16 7 16 10 V21"
+        strokeLinecap="round"
+      />
+      <path d="M8 14 H16" strokeLinecap="round" />
+    </svg>
+  ),
+  curly: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <path
+        d="M6 8 C6 5 8 4 10 5 C12 6 11 9 9 10 C7 11 6 13 7 15 C8 17 11 17 12 15"
+        strokeLinecap="round"
+      />
+      <path
+        d="M12 9 C13 7 15 6 17 7 C19 8 18 11 16 12 C14 13 13 15 14 17 C15 19 18 18 19 16"
+        strokeLinecap="round"
+      />
+    </svg>
+  ),
 }
 
 export function ServiceIcon({ name }) {
