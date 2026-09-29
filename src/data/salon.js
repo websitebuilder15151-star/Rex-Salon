@@ -35,6 +35,11 @@ export const salon = {
     'Master barbering rooted in tradition — crafted for the modern gentleman.',
   phoneDisplay: '8143472289',
   whatsappNumber: '918143472289',
+  callNumbers: ['7248244924', '8096772289'],
+  waitTime: {
+    busy: '15 mins',
+    normal: '7–8 mins',
+  },
   email: '',
   address: {
     line1: 'Rex Salon',
@@ -94,20 +99,36 @@ export function getTimeSlotsForDate(dateStr) {
 
 export const services = [
   {
-    id: 'cut-shave',
-    title: 'Cutting + Shaving',
+    id: 'haircut-shaving',
+    title: 'Haircut + Shaving',
     description:
       'A clean precision haircut paired with a smooth shave — sharp lines, tidy finish, ready for the day.',
     price: 249,
     icon: 'scissors',
   },
   {
-    id: 'curly',
-    title: 'Curly Hair Styling',
+    id: 'kids-haircut',
+    title: 'Kids Haircut',
     description:
-      'Shape, define, and care for curly textures with a cut and finish that respects your natural pattern.',
+      'Patient, friendly cuts for young boys — neat, comfortable, and stylish.',
+    price: 130,
+    icon: 'kids',
+  },
+  {
+    id: 'baby-haircut',
+    title: 'Baby Haircut',
+    description:
+      'Gentle, careful first cuts for little ones, done slowly and safely.',
+    price: 150,
+    icon: 'kids',
+  },
+  {
+    id: 'face-masks',
+    title: 'Face Masks',
+    description:
+      'Refreshing masks that cleanse, calm, and brighten tired skin.',
     price: null,
-    icon: 'curly',
+    icon: 'face',
   },
   {
     id: 'body-massage',
@@ -115,6 +136,22 @@ export const services = [
     description:
       'Full-body relaxation to ease tension, improve circulation, and leave you feeling restored.',
     price: 999,
+    icon: 'pulse',
+  },
+  {
+    id: 'head-massage',
+    title: 'Head Massage',
+    description:
+      'A soothing scalp and head massage that relieves stress and helps you unwind.',
+    price: null,
+    icon: 'pulse',
+  },
+  {
+    id: 'leg-massage',
+    title: 'Leg Massage',
+    description:
+      'Relieves tired, heavy legs and eases muscle tension after a long day.',
+    price: null,
     icon: 'pulse',
   },
   {
@@ -126,6 +163,14 @@ export const services = [
     icon: 'nails',
   },
   {
+    id: 'hydra-facial',
+    title: 'Hydra Facial',
+    description:
+      'Deep cleanse, exfoliate, and hydrate for clearer, fresher-looking skin in a single session.',
+    price: null,
+    icon: 'droplet',
+  },
+  {
     id: 'manicure',
     title: 'Manicure',
     description:
@@ -134,50 +179,38 @@ export const services = [
     icon: 'nails',
   },
   {
-    id: 'hydra-facial',
-    title: 'Hydra Facial',
+    id: 'curly-hair',
+    title: 'Curly Hair',
     description:
-      'Deep cleanse, exfoliate, and hydrate for clearer, fresher-looking skin in a single session.',
+      'Shape, define, and care for curly textures with a cut and finish that respects your natural pattern.',
     price: null,
-    icon: 'droplet',
+    icon: 'curly',
   },
 ]
+
+const shopImage = (name) => `/images/shop/${name}.jpg`
 
 export const galleryImages = [
-  {
-    src: 'https://images.unsplash.com/photo-1672257493563-0dac80e22b7d?auto=format&fit=crop&w=800&q=80',
-    alt: 'Classic barbershop chairs and mirrors',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=800&q=80',
-    alt: 'Barber performing a precise cut',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=800&q=80',
-    alt: 'Grooming tools and straight razor',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=800&q=80',
-    alt: 'Beard trim in progress',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=800&q=80',
-    alt: 'Modern salon interior lighting',
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&q=80',
-    alt: 'Finished classic gentlemen haircut',
-  },
+  { src: shopImage('storefront'), alt: 'Rex Unique Men Salon & Parlour storefront at night' },
+  { src: shopImage('interior-wide'), alt: 'Barbers at work across the salon floor' },
+  { src: shopImage('rex-wall'), alt: 'Rex logo on the stone feature wall at reception' },
+  { src: shopImage('interior-fern-wall'), alt: 'Styling stations with gold mirrors and fern wallpaper' },
+  { src: shopImage('waiting-lounge'), alt: 'Waiting lounge with green sofa and hexagon lights' },
+  { src: shopImage('interior-chairs'), alt: 'Green salon chairs and hair wash stations' },
+  { src: shopImage('lounge-products'), alt: 'Grooming product shelf and lounge area' },
+  { src: shopImage('styling-stations'), alt: 'Gold-framed mirrors at the styling stations' },
+  { src: shopImage('reception'), alt: 'Reception desk with product display' },
 ]
 
-export const heroImage =
-  'https://images.unsplash.com/photo-1638383257225-f810a62c634e?auto=format&fit=crop&w=1600&q=80'
+export const heroImage = shopImage('interior-wide')
 
-export const aboutImage =
-  'https://images.unsplash.com/photo-1621607512214-68297480165e?auto=format&fit=crop&w=1000&q=80'
+export const aboutImage = shopImage('reception-desk')
+
+export function hasPrice(amount) {
+  return amount != null && amount !== ''
+}
 
 export function formatPrice(amount) {
-  if (amount == null || amount === '') return 'Price on request'
   return `₹${amount}`
 }
 

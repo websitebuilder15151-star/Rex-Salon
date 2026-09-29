@@ -1,4 +1,4 @@
-import { formatPrice, services, salon } from '../data/salon'
+import { formatPrice, hasPrice, services, salon } from '../data/salon'
 import { ServiceIcon } from './ServiceIcon'
 import './Services.css'
 
@@ -17,7 +17,9 @@ export function Services({ onBook }) {
               <h3 className="service-card-title">{service.title}</h3>
               <p className="service-card-desc">{service.description}</p>
               <div className="service-card-footer">
-                <span className="service-card-price">{formatPrice(service.price)}</span>
+                {hasPrice(service.price) && (
+                  <span className="service-card-price">{formatPrice(service.price)}</span>
+                )}
                 <button
                   type="button"
                   className="btn btn-outline service-card-book"

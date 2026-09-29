@@ -1,42 +1,32 @@
 #!/bin/bash
-# Run this in Terminal.app (outside Cursor) to create + push the public repo.
+# Push Rex-Salon to the new GitHub account.
+# Run in Terminal.app:
+#   bash "/Users/chandu/Documents/ALL/Fun_ Websites/rex-salon/scripts/push-to-github.sh"
+
 set -euo pipefail
 cd "/Users/chandu/Documents/ALL/Fun_ Websites/rex-salon"
 
-CREDS=$(printf "protocol=https\nhost=github.com\n\n" | git credential-osxkeychain get)
-GH_USER=$(printf '%s\n' "$CREDS" | sed -n 's/^username=//p')
-GH_TOKEN=$(printf '%s\n' "$CREDS" | sed -n 's/^password=//p')
+REPO="https://github.com/websitebuilder15151-star/Rex-Salon.git"
+GH_BIN="/tmp/gh/gh_2.67.0_macOS_arm64/bin/gh"
 
-if [[ -z "${GH_USER}" || -z "${GH_TOKEN}" ]]; then
-  echo "No GitHub credentials in Keychain. Run: gh auth login"
-  exit 1
+echo "=== 1) Login to NEW GitHub account (websitebuilder15151-star) ==="
+if [[ -x "$GH_BIN" ]]; then
+  export PATH="$(dirname "$GH_BIN"):$PATH"
 fi
 
-echo "GitHub user: ${GH_USER}"
-
-STATUS=$(curl -sS -o /tmp/regs-create.json -w "%{http_code}" -X POST \
-  -H "Accept: application/vnd.github+json" \
-  -H "Authorization: Bearer ${GH_TOKEN}" \
-  -H "X-GitHub-Api-Version: 2022-11-28" \
-  https://api.github.com/user/repos \
-  -d '{"name":"regs-website","description":"Marketing website with WhatsApp booking","private":false,"auto_init":false}')
-
-echo "Create repo HTTP: ${STATUS}"
-if [[ "${STATUS}" != "201" && "${STATUS}" != "422" ]]; then
-  cat /tmp/regs-create.json
-  exit 1
+if ! command -v gh >/dev/null 2>&1; then
+  echo "gh not found. Install with: brew install gh"
+  echo "Or push with a Personal Access Token (see below)."
+else
+  gh auth status 2>/dev/null || gh auth login --hostname github.com --git-protocol https --web
 fi
 
+echo ""
+echo "=== 2) Point remote & push ==="
 git remote remove origin 2>/dev/null || true
-git remote add origin "https://github.com/${GH_USER}/regs-website.git"
+git remote add origin "$REPO"
 
-git push -u "https://${GH_USER}:${GH_TOKEN}@github.com/${GH_USER}/regs-website.git" HEAD:main
+git push -u origin main
 
 echo ""
-echo "GitHub: https://github.com/${GH_USER}/regs-website"
-echo ""
-echo "Next — deploy on Vercel:"
-echo "  1. Open https://vercel.com/new"
-echo "  2. Import ${GH_USER}/regs-website"
-echo "  3. Framework: Vite, Build: npm run build, Output: dist"
-echo "  4. Deploy"
+echo "Done: $REPO"

@@ -77,6 +77,14 @@ const icons = {
       <path d="M8 14 H16" strokeLinecap="round" />
     </svg>
   ),
+  face: (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
+      <ellipse cx="12" cy="12" rx="7" ry="8.5" />
+      <circle cx="9.5" cy="10.5" r="0.9" fill="currentColor" stroke="none" />
+      <circle cx="14.5" cy="10.5" r="0.9" fill="currentColor" stroke="none" />
+      <path d="M9.5 15 Q12 16.8 14.5 15" strokeLinecap="round" />
+    </svg>
+  ),
   curly: (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
       <path

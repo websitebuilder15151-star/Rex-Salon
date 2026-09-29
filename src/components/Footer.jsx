@@ -30,6 +30,11 @@ export function Footer() {
           >
             WhatsApp
           </a>
+          {salon.callNumbers.map((number) => (
+            <a key={number} href={`tel:+91${number}`}>
+              +91 {number}
+            </a>
+          ))}
         </div>
       </div>
       <div className="container footer-bottom">

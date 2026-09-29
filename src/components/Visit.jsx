@@ -69,6 +69,13 @@ export function Visit({ onBook }) {
                 Chat on WhatsApp
               </a>
             </p>
+            {salon.callNumbers.map((number) => (
+              <p key={number}>
+                <a href={`tel:+91${number}`} className="visit-link">
+                  Call +91 {number}
+                </a>
+              </p>
+            ))}
           </div>
         </div>
       </div>

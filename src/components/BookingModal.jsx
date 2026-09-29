@@ -1,7 +1,9 @@
 import { useEffect, useId, useMemo, useState } from 'react'
 import {
   buildWhatsAppUrl,
+  formatPrice,
   getLocalDateString,
+  hasPrice,
   getTimeSlotsForDate,
   salon,
   services,
@@ -128,6 +130,30 @@ export function BookingModal({ open, onClose, initialService = '' }) {
           to send. The shop will confirm your slot.
         </p>
 
+        <aside className="wait-card" aria-label="Expected waiting time">
+          <div className="wait-card-head">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 7v5l3 2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <span>Expected waiting time at the shop</span>
+          </div>
+          <div className="wait-card-grid">
+            <div className="wait-pill">
+              <span className="wait-pill-label">Normal hours</span>
+              <strong>{salon.waitTime.normal}</strong>
+            </div>
+            <div className="wait-pill wait-pill--busy">
+              <span className="wait-pill-label">Busy hours</span>
+              <strong>{salon.waitTime.busy}</strong>
+            </div>
+          </div>
+          <p className="wait-card-note">
+            Your booked time is our best estimate. On busy days there may be a
+            short wait before your service starts.
+          </p>
+        </aside>
+
         <form className="modal-form" onSubmit={handleSubmit} noValidate>
           <label className="field">
             <span>Full name</span>
@@ -160,7 +186,7 @@ export function BookingModal({ open, onClose, initialService = '' }) {
             <select value={form.service} onChange={update('service')} required>
               {services.map((s) => (
                 <option key={s.id} value={s.title}>
-                  {s.price != null ? `${s.title} — ₹${s.price}` : s.title}
+                  {hasPrice(s.price) ? `${s.title} — ${formatPrice(s.price)}` : s.title}
                 </option>
               ))}
             </select>
