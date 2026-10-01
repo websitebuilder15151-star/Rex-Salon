@@ -9,7 +9,7 @@ export function Visit({ onBook }) {
       <div className="container visit-grid">
         <div className="visit-copy">
           <p className="section-eyebrow">Find us</p>
-          <h2 className="section-title">Visit Rex Salon</h2>
+          <h2 className="section-title">Visit Rex Unique Salon</h2>
           <p className="section-lead">
             Prefer a chair with intention. Drop by during open hours or request
             a time that suits you.

@@ -1,6 +1,6 @@
 export function Logo({ className = '' }) {
   return (
-    <a href="#home" className={`logo ${className}`} aria-label="Rex Salon home">
+    <a href="#home" className={`logo ${className}`} aria-label="Rex Unique Salon home">
       <span className="logo-mark" aria-hidden="true">
         <svg viewBox="0 0 64 64" width="40" height="40">
           <circle
@@ -41,7 +41,7 @@ export function Logo({ className = '' }) {
           />
         </svg>
       </span>
-      <span className="logo-text">Rex Salon</span>
+      <span className="logo-text">Rex Unique Salon</span>
     </a>
   )
 }

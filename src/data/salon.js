@@ -28,9 +28,9 @@ function buildTimeSlots(first = '7:30 AM', last = '9:30 PM', interval = 30) {
 }
 
 export const salon = {
-  name: 'Rex Salon',
+  name: 'Rex Unique Salon',
   tagline: 'Refined Self-Care',
-  headline: 'Rex Salon: Precision Craft, Distinguished',
+  headline: 'Rex Unique Salon: Precision Craft, Distinguished',
   heroSubtext:
     'Master barbering rooted in tradition — crafted for the modern gentleman.',
   phoneDisplay: '8143472289',
@@ -42,7 +42,7 @@ export const salon = {
   },
   email: '',
   address: {
-    line1: 'Rex Salon',
+    line1: 'Rex Unique Salon',
     line2: 'Old Gayatri Nagar',
     city: 'Hyderabad, Telangana 500097',
     note: '',
@@ -57,7 +57,7 @@ export const salon = {
   about: {
     eyebrow: 'Master Barbering',
     title: 'The Art of Precision',
-    body: 'At Rex Salon in Old Gayatri Nagar, we blend classic barbering with modern grooming and care — from sharp cuts and shaves to relaxing massage, nail care, and skin treatments. Every visit is crafted for a clean, confident finish.',
+    body: 'At Rex Unique Salon in Old Gayatri Nagar, we blend classic barbering with modern grooming and care — from sharp cuts and shaves to relaxing massage, nail care, and skin treatments. Every visit is crafted for a clean, confident finish.',
   },
   servicesIntro:
     'Discover a curated selection of services designed to refine your look and rejuvenate your senses.',

@@ -13,7 +13,7 @@ export function About() {
           <p className="section-lead">{about.body}</p>
         </div>
         <div className="about-media">
-          <img src={aboutImage} alt="Rex Salon reception with the Rex stone feature wall" loading="lazy" />
+          <img src={aboutImage} alt="Rex Unique Salon reception with the Rex stone feature wall" loading="lazy" />
         </div>
       </div>
     </section>

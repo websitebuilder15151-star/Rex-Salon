@@ -119,6 +119,15 @@
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
+@media (max-width: 420px) {
+  .logo-text {
+    max-width: 7.5rem;
+    line-height: 1.25;
+    font-size: 0.75rem !important;
+    letter-spacing: 0.1em !important;
+  }
+}
+
 @media (max-width: 860px) {
   .navbar-trailing {
     display: flex;
@@ -139,6 +148,10 @@
   .logo-text {
     font-size: 0.82rem;
     letter-spacing: 0.14em;
+  }
+
+  .logo {
+    min-width: 0;
   }
 
   .navbar-nav {

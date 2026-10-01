@@ -1,4 +1,4 @@
-# Rex Salon — Client Details Checklist
+# Rex Unique Salon — Client Details Checklist
 
 Use this file to collect or update real business details. Demo placeholders already power the site in [`src/data/salon.js`](src/data/salon.js). When you have the real info, reply here or edit that config file.
 
@@ -8,7 +8,7 @@ Use this file to collect or update real business details. Demo placeholders alre
 
 | Item | Value | Status |
 |------|--------|--------|
-| Shop name | Rex Salon | Confirmed |
+| Shop name | Rex Unique Salon | Confirmed |
 | WhatsApp / phone | `9032519130` → `https://wa.me/919032519130` | Confirmed for demo |
 | Country code | `+91` (India) | Assumed |
 
