@@ -188,6 +188,28 @@ export const services = [
   },
 ]
 
+export const combos = [
+  {
+    id: 'combo-grooming',
+    title: 'Complete Grooming Combo',
+    items: ['Cutting', 'Shaving', 'Detan', 'Head Massage', 'Hair Wash'],
+    price: 699,
+    featured: true,
+  },
+  {
+    id: 'combo-glow',
+    title: 'Glow & Relax Combo',
+    items: ['Fruit Facial', 'Head Massage', 'Hair Wash'],
+    price: 899,
+  },
+  {
+    id: 'combo-relax',
+    title: 'Total Relax Combo',
+    items: ['Head Massage', 'Leg Massage', 'Hair Wash'],
+    price: 499,
+  },
+]
+
 const shopImage = (name) => `/images/shop/${name}.jpg`
 
 export const galleryImages = [
@@ -214,6 +236,12 @@ export function formatPrice(amount) {
   return `₹${amount}`
 }
 
+function describeService(title) {
+  const combo = combos.find((c) => c.title === title)
+  if (!combo) return title
+  return `${combo.title} (${combo.items.join(' + ')}) — ${formatPrice(combo.price)}`
+}
+
 export function buildWhatsAppUrl({ name, phone, service, date, time, note }) {
   const lines = [
     `Hello ${salon.name}!`,
@@ -221,7 +249,7 @@ export function buildWhatsAppUrl({ name, phone, service, date, time, note }) {
     'New appointment request:',
     `• Name: ${name}`,
     `• Customer phone: ${phone}`,
-    `• Service: ${service}`,
+    `• Service: ${describeService(service)}`,
     `• Date: ${date}`,
     `• Time: ${time}`,
   ]

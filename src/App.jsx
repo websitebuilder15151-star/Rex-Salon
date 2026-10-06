@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react'
 import { About } from './components/About'
 import { BookingModal } from './components/BookingModal'
+import { Combos } from './components/Combos'
 import { Footer } from './components/Footer'
 import { Gallery } from './components/Gallery'
 import { Hero } from './components/Hero'
@@ -29,6 +30,7 @@ function App() {
         <Hero onBook={() => openBooking()} />
         <About />
         <Services onBook={openBooking} />
+        <Combos onBook={openBooking} />
         <Reserve onBook={() => openBooking()} />
         <Gallery />
         <Visit onBook={() => openBooking()} />

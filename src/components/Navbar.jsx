@@ -5,6 +5,7 @@ import './Navbar.css'
 const links = [
   { href: '#home', label: 'Home', id: 'home' },
   { href: '#services', label: 'Services', id: 'services' },
+  { href: '#combos', label: 'Combos', id: 'combos' },
   { href: '#about', label: 'About', id: 'about' },
   { href: '#gallery', label: 'Gallery', id: 'gallery' },
   { href: '#contact', label: 'Contact', id: 'contact' },

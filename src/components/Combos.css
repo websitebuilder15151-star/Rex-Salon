@@ -1,0 +1,130 @@
+.combos {
+  background:
+    radial-gradient(ellipse at top, rgba(197, 160, 89, 0.1), transparent 60%),
+    var(--bg);
+}
+
+.combos-header {
+  text-align: center;
+  margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.combos-header .section-lead {
+  margin-inline: auto;
+}
+
+.combos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+}
+
+.combo-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.6rem 1.6rem;
+}
+
+.combo-card--featured {
+  border-color: rgba(197, 160, 89, 0.55);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+.combo-badge {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--gold);
+  color: var(--bg);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.combo-title {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: var(--cream);
+  line-height: 1.25;
+}
+
+.combo-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin: 0.6rem 0 1.25rem;
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.combo-price span {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.combo-items {
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  margin-bottom: 1.75rem;
+  flex: 1;
+}
+
+.combo-items li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: var(--text);
+}
+
+.combo-items li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.combo-book {
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .combos-grid {
+    grid-template-columns: 1fr;
+    max-width: 30rem;
+    margin-inline: auto;
+    gap: 1.75rem;
+  }
+}
+
+@media (max-width: 560px) {
+  .combo-card {
+    padding: 1.75rem 1.25rem 1.35rem;
+  }
+
+  .combo-price {
+    font-size: 2.1rem;
+  }
+}

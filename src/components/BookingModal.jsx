@@ -1,6 +1,7 @@
 import { useEffect, useId, useMemo, useState } from 'react'
 import {
   buildWhatsAppUrl,
+  combos,
   formatPrice,
   getLocalDateString,
   hasPrice,
@@ -184,11 +185,20 @@ export function BookingModal({ open, onClose, initialService = '' }) {
           <label className="field">
             <span>Service</span>
             <select value={form.service} onChange={update('service')} required>
-              {services.map((s) => (
-                <option key={s.id} value={s.title}>
-                  {hasPrice(s.price) ? `${s.title} — ${formatPrice(s.price)}` : s.title}
-                </option>
-              ))}
+              <optgroup label="Services">
+                {services.map((s) => (
+                  <option key={s.id} value={s.title}>
+                    {hasPrice(s.price) ? `${s.title} — ${formatPrice(s.price)}` : s.title}
+                  </option>
+                ))}
+              </optgroup>
+              <optgroup label="Special combos">
+                {combos.map((c) => (
+                  <option key={c.id} value={c.title}>
+                    {`${c.title} — ${formatPrice(c.price)}`}
+                  </option>
+                ))}
+              </optgroup>
             </select>
             {errors.service && <em className="field-error">{errors.service}</em>}
           </label>
